@@ -1,0 +1,15 @@
+{% extends '../base.html' %}
+
+{% block content %}
+  <h1>Lapangan</h1>
+  <ul>
+    {% for lapangan in lapangan_list %}
+      <li>
+        {{ lapangan.nama }} ({{ lapangan.deskripsi }})
+        <a href="{% url 'lapangan_update' lapangan.pk %}">Update</a>
+        <a href="{% url 'lapangan_delete' lapangan.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'lapangan_create' %}">Tambah Lapangan</a>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends '../base.html' %}
+
+{% block content %}
+  <h1>Lapangan telah dihapus</h1>
+  <p>Lapangan {{ lapangan.nama }} telah berhasil dihapus.</p>
+  <a href="{% url 'lapangan_list' %}">Kembali ke daftar lapangan</a>
+{% endblock %}

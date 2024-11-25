@@ -1,0 +1,10 @@
+{% extends '../base.html' %}
+
+{% block content %}
+  <h1>Hapus Lapangan</h1>
+  <p>Apakah Anda yakin ingin menghapus lapangan {{ lapangan.nama }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Hapus</button>
+  </form>
+{% endblock %}
