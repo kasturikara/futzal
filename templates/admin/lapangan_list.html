@@ -1,4 +1,5 @@
 {% extends '../base.html' %}
+{% load static %}
 
 {% block content %}
   <h1>Lapangan</h1>
@@ -6,6 +7,16 @@
     {% for lapangan in lapangan_list %}
       <li>
         {{ lapangan.nama }} ({{ lapangan.deskripsi }})
+      </li>
+      <li>
+        {% if lapangan.foto_lapangan %}
+          <img class="img-fluid" style="max-width: 200px;" src="{{ lapangan.foto_lapangan.url }}" alt="{{ lapangan.nama }}">
+        {% else %}
+          <!-- Tampilkan gambar default atau pesan jika atribut foto_lapangan tidak memiliki file yang terkait -->
+          <img src="{% static 'img/default_image.jpg' %}" alt="Gambar default">
+        {% endif %}
+      </li>
+      <li>
         <a href="{% url 'lapangan_update' lapangan.pk %}">Update</a>
         <a href="{% url 'lapangan_delete' lapangan.pk %}">Delete</a>
       </li>

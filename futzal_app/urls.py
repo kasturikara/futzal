@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.LandingPageView.as_view(), name='landing'),
     
-    path('admin/', views.admin_dashboard, name='admin_dashboard'),
+    # path('admin/', views.admin_dashboard, name='admin_dashboard'),
     
     path('lapangan/', views.LapanganListView.as_view(), name='lapangan_list'),
     path('lapangan/tambah/', views.LapanganCreateView.as_view(), name='lapangan_create'),

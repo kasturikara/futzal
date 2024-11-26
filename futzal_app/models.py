@@ -6,6 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nama = models.CharField(max_length=255)
     no_telepon = models.CharField(max_length=20)
+    foto_profil = models.ImageField(upload_to='profile/user/', blank=True, null=True)
 
     def __str__(self):
         return self.nama
@@ -15,6 +16,7 @@ class Staff(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nama = models.CharField(max_length=255)
     no_telepon = models.CharField(max_length=20)
+    foto_profil = models.ImageField(upload_to='profile/staff/', blank=True, null=True)
 
     def __str__(self):
         return self.nama
@@ -23,6 +25,7 @@ class Admin(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nama = models.CharField(max_length=255)
     no_telepon = models.CharField(max_length=20)
+    foto_profil = models.ImageField(upload_to='profile/admin/', blank=True, null=True)
 
     def __str__(self):
         return self.nama
@@ -33,8 +36,10 @@ class Lapangan(models.Model):
     deskripsi = models.TextField()
     harga = models.IntegerField()
     status = models.CharField(max_length=20, choices=[('tersedia', 'Tersedia'), ('tidak_tersedia', 'Tidak Tersedia')], default='tersedia')
+    foto_lapangan = models.ImageField(upload_to='lapangan/', blank=True, null=True)
     
     def __str__(self):
+        
         return self.nama
     
     

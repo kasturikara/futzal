@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
 from .models import Lapangan, Staff, Admin
 from .forms import LapanganCreateForm, LapanganUpdateForm, LapanganDeleteForm
 
 
-def admin_dashboard(request):
-    return render(request, 'admin/index.html')
+# def admin_dashboard(request):
+#     return render(request, 'admin/index.html')
 
 
 class LandingPageView(TemplateView):
@@ -32,7 +33,14 @@ class LapanganUpdateView(UpdateView):
     model = Lapangan
     form_class = LapanganUpdateForm
     template_name = 'admin/lapangan_update.html'
-    success_url = '/lapangan/'
+
+    def get_success_url(self):
+        return reverse('lapangan_list')
+    
+    def form_valid(self, form):
+        if 'foto_lapangan' in self.request.FILES:
+            self.object.foto_lapangan = self.request.FILES['foto_lapangan']
+        return super().form_valid(form)
 
 class LapanganDeleteView(DeleteView):
     model = Lapangan
