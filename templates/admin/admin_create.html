@@ -1,0 +1,15 @@
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Tambah Admin</h2>
+  <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="mb-3">
+      {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn btn-primary">Simpan</button>
+  </form>
+</div>
+{% endblock content %}
+

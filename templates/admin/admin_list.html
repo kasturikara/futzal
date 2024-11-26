@@ -1,0 +1,11 @@
+{% extends '../base.html' %}
+
+{% block content %}
+  <h1>Daftar Admin</h1>
+  <ol>
+    {% for admin in admins %}
+      <li>{{ admin.nama }} ({{ admin.no_telepon }})</li>
+    {% endfor %}
+  </ol>
+  <a href="{% url 'admin_create' %}">Tambah Admin</a>
+{% endblock %}

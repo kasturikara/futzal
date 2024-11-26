@@ -1,72 +1,38 @@
-<!-- futzal_project/futzal_app/templates/admin.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futzal Admin</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Futzal Admin</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Lapangan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Staff</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">User</a>
-                </li>
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Futzal Admin</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Lapangan</h2>
+            <ul>
+                <li><a href={% url 'lapangan_create' %}>Tambah Lapangan</a></li>
+                <li><a href={% url 'lapangan_list' %}>Daftar Lapangan</a></li>
             </ul>
         </div>
-    </nav>
-    <div class="container">
-        <h1>Futzal Admin</h1>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Lapangan</h2>
-                <ul>
-                    <li><a href={% url 'lapangan_create' %}>Tambah Lapangan</a></li>
-                    <li><a href={% url 'lapangan_list' %}>Daftar Lapangan</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h2>Staff</h2>
-                <ul>
-                    <li><a href="#">Tambah Staff</a></li>
-                    <li><a href="#">Daftar Staff</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h2>Admin</h2>
-                <ul>
-                    <li><a href="#">Tambah Admin</a></li>
-                    <li><a href="#">Daftar Admin</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h2>User</h2>
-                <ul>
-                    <li><a href="#">Tambah User</a></li>
-                    <li><a href="#">Daftar User</a></li>
-                </ul>
-            </div>
+        <div class="col-md-4">
+            <h2>Staff</h2>
+            <ul>
+                <li><a href="#">Tambah Staff</a></li>
+                <li><a href="#">Daftar Staff</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Admin</h2>
+            <ul>
+                <li><a href="#">Tambah Admin</a></li>
+                <li><a href="{% url 'admin_list' %}">Daftar Admin</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>User</h2>
+            <ul>
+                <li><a href="#">Tambah User</a></li>
+                <li><a href="#">Daftar User</a></li>
+            </ul>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
-</html>
+</div>
+{% endblock content %}
+    

@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'futzal_app.middleware.RoleMiddleware',
 ]
 
 ROOT_URLCONF = 'futzal_project.urls'
